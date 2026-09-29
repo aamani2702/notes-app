@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "../App.css";
 import api from "../api";
 import NoteForm from "../components/NoteForm";
 import NoteList from "../components/NoteList";
@@ -64,10 +65,14 @@ function Dashboard() {
   }
 
   return (
-    <div>
-      <h1>My Notes</h1>
-      <button onClick={handleLogout}>Log out</button>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <div className="dashboard-page">
+      <div className="dashboard-header">
+        <h1>My Notes</h1>
+        <button className="logout-btn" onClick={handleLogout}>
+          Log out
+        </button>
+      </div>
+      {error && <p className="auth-error">{error}</p>}
       <NoteForm
         onSubmit={handleCreateOrUpdate}
         editingNote={editingNote}

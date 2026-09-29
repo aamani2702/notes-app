@@ -24,8 +24,8 @@ function NoteForm({ onSubmit, editingNote, onCancel }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form className="note-form" onSubmit={handleSubmit}>
+      <div className="note-form-field">
         <input
           type="text"
           placeholder="Title"
@@ -34,7 +34,7 @@ function NoteForm({ onSubmit, editingNote, onCancel }) {
           required
         />
       </div>
-      <div>
+      <div className="note-form-field">
         <textarea
           placeholder="Content"
           value={content}
@@ -42,12 +42,16 @@ function NoteForm({ onSubmit, editingNote, onCancel }) {
           rows={4}
         />
       </div>
-      <button type="submit">{editingNote ? "Save changes" : "Add note"}</button>
-      {editingNote && (
-        <button type="button" onClick={onCancel}>
-          Cancel
+      <div className="note-form-actions">
+        <button type="submit">
+          {editingNote ? "Save changes" : "Add note"}
         </button>
-      )}
+        {editingNote && (
+          <button type="button" className="note-form-cancel" onClick={onCancel}>
+            Cancel
+          </button>
+        )}
+      </div>
     </form>
   );
 }
