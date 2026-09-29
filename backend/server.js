@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const pool = require("./db");
 const authRoutes = require("./authRoutes");
+const notesRoutes = require("./notesRoutes");
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.get("/api/db-test", async (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/notes", notesRoutes);
 
 const PORT = process.env.PORT || 5000;
 
